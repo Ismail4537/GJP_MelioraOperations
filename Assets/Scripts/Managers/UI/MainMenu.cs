@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject mainMenuButtonsContainer;
-    [SerializeField] Slider masterSlider;
-    [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
+    //[SerializeField] Slider masterSlider;
+    //[SerializeField] Slider musicSlider;
+    //[SerializeField] Slider sfxSlider;
     private void Start()
     {
         MusicManager.instance.PlayMusicTrack("MainMenu", 1f);
-        setSliderValues();
+        //setSliderValues();
     }
 
     public void LoadScene(int sceneID)
@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
         bool isActive = container.activeSelf;
         container.SetActive(!isActive);
         ToggleInteractableButtons(mainMenuButtonsContainer, isActive);
-        setSliderValues();
+        //setSliderValues();
     }
 
     void ToggleInteractableButtons(GameObject container, bool isInteractable)
@@ -37,12 +37,12 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    void setSliderValues()
-    {
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
-    }
+    //void setSliderValues()
+    //{
+    //    masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
+    //    musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+    //    sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+    //}
 
     public void ExitGame()
     {
