@@ -3,16 +3,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 public class CardSO : ScriptableObject
 {
-    [Header("Info Kartu")]
-    public Sprite cardImage; // icon kartu
-    public string cardName; // nama kartu
+    public Sprite cardImage;
+    public string cardText;
+    public CardEffect effectType;
+    public int effectValue; 
+    public int unlockLevel;
+}
 
-    [TextArea] 
-    public string cardDescription; // deskripsi kartu
-    [Header("Effect Settings")]
-    public CardEffect effectType; // tipe efek kartu
-
-    public float baseValue;        // base effect kartu
-    public int maxLevel = 1;       // level maksimum kartu
+public enum CardEffect
+{
+    AtkUp,
+    HpUp,
+    SpeedUp,
+    Burn,
+    Freeze,
+    WeaponMissile,
+    WeaponLaser,
+    WeaponMachineGun,
+    LongerDash
 }
 
