@@ -1,0 +1,512 @@
+fileFormatVersion: 2
+guid: a79cff0096224df4daafe09a5c1d59bf
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 6771dfe93c745974e985acd32418fd40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: sketsa Copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1408
+      y: 964
+      width: 161
+      height: 1829
+    spriteID: de114558ebd4d4546b3606ce9ad2e09f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1408, y: 964}
+    spritePosition: {x: 3493, y: 48}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1641
+      y: 4
+      width: 161
+      height: 1829
+    spriteID: 1ddc9a023c2f4a64ebc787d77dbfa58e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1641, y: 4}
+    spritePosition: {x: 3126, y: 135}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 776
+      height: 1925
+    spriteID: 609ef18e19bd100438af3da478333e29
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -25, y: -51}
+    spritePosition: {x: 2077, y: 55}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 788
+      y: 4
+      width: 845
+      height: 952
+    spriteID: af08e81d39893f14db7682669850234c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 788, y: 4}
+    spritePosition: {x: 1087, y: 682}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1937
+      width: 449
+      height: 1726
+    spriteID: 4fa42815ae767f54aa0a260528ad8d76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1937}
+    spritePosition: {x: 1297, y: 221}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1175
+      y: 964
+      width: 225
+      height: 1953
+    spriteID: 2cf4a8422d640584daf72222cc9a45d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1175, y: 964}
+    spritePosition: {x: 1013, y: 8}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 788
+      y: 964
+      width: 379
+      height: 1957
+    spriteID: 2c68bcf2b3139bf489cee323ff266409
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 592, y: 930}
+    spritePosition: {x: 452, y: 34}
+  - name: sketsa
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 461
+      y: 1937
+      width: 314
+      height: 1782
+    spriteID: 021bcd4a16a1b2e4f841f3334501d1e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 461, y: 1937}
+    spritePosition: {x: 36, y: 164}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  generateTileAssets: 0
+  tilePaletteCellLayout: 0
+  tilePaletteHexagonLayout: 0
+  tilePaletteCellSize: {x: 1, y: 1, z: 0}
+  tilePaletteCellSizing: 0
+  transparencySortMode: 0
+  transparencySortAxis: {x: 0, y: 0, z: 1}
+  tileTemplate: {instanceID: 0}
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: dual sword
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 1d6e26dc387e6604b8b4985998991539
+    layerID: 20
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: kanan
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: c8710ff2dc5e89c478fc8a3852174794
+    layerID: 25
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa Copy
+    spriteName: sketsa Copy
+    isGroup: 0
+    parentIndex: 1
+    spriteID: de114558ebd4d4546b3606ce9ad2e09f
+    layerID: 27
+    mosaicPosition: {x: 1408, y: 964}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kiri
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 06bb58c606e35884186b85d7c49d8a23
+    layerID: 22
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 1ddc9a023c2f4a64ebc787d77dbfa58e
+    layerID: 24
+    mosaicPosition: {x: 1641, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hammer
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: a20f4a0f2d3074a41b936a81c7182b42
+    layerID: 17
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 609ef18e19bd100438af3da478333e29
+    layerID: 19
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Bow
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: de67b26227e89744a9767f69f1f35667
+    layerID: 11
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: anak panah
+    spriteName: 
+    isGroup: 1
+    parentIndex: 7
+    spriteID: ed3663dbde24f1240a634cce19c18181
+    layerID: 14
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 8
+    spriteID: af08e81d39893f14db7682669850234c
+    layerID: 16
+    mosaicPosition: {x: 788, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 4fa42815ae767f54aa0a260528ad8d76
+    layerID: 13
+    mosaicPosition: {x: 4, y: 1937}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: spear
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 111ca34ee0f569a4398d67bc60aff896
+    layerID: 8
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 2cf4a8422d640584daf72222cc9a45d6
+    layerID: 10
+    mosaicPosition: {x: 1175, y: 964}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: claymore
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 5229b0902ea6fef4bb75cf87e2b6a00c
+    layerID: 5
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 2c68bcf2b3139bf489cee323ff266409
+    layerID: 7
+    mosaicPosition: {x: 788, y: 964}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sword
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 48b8152fb7c4743479e514d634264f42
+    layerID: 2
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: sketsa
+    spriteName: sketsa
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 021bcd4a16a1b2e4f841f3334501d1e6
+    layerID: 4
+    mosaicPosition: {x: 461, y: 1937}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Paper
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a256060d90c936642bfc3dd772d7e8a2
+    layerID: 1
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
