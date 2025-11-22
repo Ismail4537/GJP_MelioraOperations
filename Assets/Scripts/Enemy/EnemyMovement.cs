@@ -4,6 +4,8 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private EnemyStatsSO stats;
 
+    private EnemyController controller;
+
     private float speed;
 
     private Transform player;
@@ -24,6 +26,8 @@ public class EnemyMovement : MonoBehaviour
 
         rb = parent.GetComponent<Rigidbody2D>();
 
+        controller = GetComponent<EnemyController>();
+
         spriteObject = parent.Find("Sprite");
     }
 
@@ -37,7 +41,6 @@ public class EnemyMovement : MonoBehaviour
         Vector2 direction = (player.position - parent.position).normalized;
         rb.linearVelocity = direction * speed;
 
-        // rotasi musuh agar lihat ke player (top-down)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         parent.rotation = Quaternion.Euler(0, 0, angle);
     }

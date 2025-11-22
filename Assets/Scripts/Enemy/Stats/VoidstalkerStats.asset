@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d2869069bcc85439d0cec5232229be, type: 3}
-  m_Name: Voidstalker
+  m_Name: VoidstalkerStats
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsSO
+  enemyName: Voidstalker
+  enemyCategory: C
   maxHealth: 80
   demage: 1
   cooldown: 1

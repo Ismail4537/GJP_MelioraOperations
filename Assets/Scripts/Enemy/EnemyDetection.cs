@@ -36,7 +36,7 @@ public class EnemyDetection : MonoBehaviour
 
         bool isSeeingPlayer = hits.Length > 0;
         
-        if (isSeeingPlayer)
+        if (isSeeingPlayer && stats.enemyName != "Chimerator")
             rb.linearVelocity = Vector2.zero;
 
         if (isSeeingPlayer && !playerDetected)

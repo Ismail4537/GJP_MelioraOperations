@@ -1,23 +1,22 @@
 using UnityEngine;
 
-public class VoidstalkerAttack : MonoBehaviour, IAttackPattern
-{
+public class LeechwerAttack : MonoBehaviour, IAttackPattern {
     [SerializeField] private EnemyStatsSO stats;
-
     private EnemyAttack enemyAttack;
-    
+
     private float cooldown;
 
     private float currentCooldown;
 
     private float timer;
 
-    private EnemyController enemyController;
-
     private bool once;
+
+    private Transform player;
 
     private void Start() {
         Transform parent = transform.parent;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyAttack = parent.Find("Scripts").GetComponent<EnemyAttack>();
         cooldown = stats.cooldown;
         once = true;
@@ -29,7 +28,9 @@ public class VoidstalkerAttack : MonoBehaviour, IAttackPattern
         {
             once = false;
             timer = 0f;
-            currentCooldown = 0f;
+            currentCooldown = cooldown;
+
+            transform.parent.SetParent(player);
         }
     }
 
@@ -42,8 +43,10 @@ public class VoidstalkerAttack : MonoBehaviour, IAttackPattern
             timer = 0f;
 
             currentCooldown = cooldown;
-            
+
             enemyAttack.Attack();
+
+            Destroy(transform.parent.gameObject);
         }
     }
 }

@@ -3,6 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyStatsSO", menuName = "EnemyStats/EnemyStatsNode")]
 public class EnemyStatsSO : ScriptableObject
 {
+    [Header("Id")]
+    public string enemyName = ""; 
+
+    [Header("Category")]
+    public string enemyCategory = ""; 
+
     [Header("HP")]
     public int maxHealth = 50;
 
@@ -15,4 +21,8 @@ public class EnemyStatsSO : ScriptableObject
 
     [Header("Speed")]
     public float speed = 2;
+
+    [Header("Audio")]
+    public AudioClip attackSFX;
+    public AudioClip deathSFX;
 }
