@@ -1,21 +1,28 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IEffectable
 {
     PlayerInputController pic;
     PlayerStat ps;
+    StatusEffectData effect;
     float defDistanceRay = 50f;
-    float jumpForce = 50f;
     float shootTimer = 0f;
     float rotationAngle;
     float lasDir = 1;
     bool canJump = true;
     bool isJump = false;
+    bool isReloading = false;
+    float currEffectTime = 0f;
+    float nextTickTime = 0f;
     float jumpTime = 0.5f;
     float jumpCD = 0.5f;
     float smoothTime = 0.1f;
+    float invicibilityDuration = 3f;
+    float invicibilityTimer = 0f;
     public float jumpSmoothTime = 0.1f;
     public bool isShooting = false;
     [SerializeField] LineRenderer lineRenderer;
@@ -38,23 +45,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        invicibilityCountdown();
+        Shoot();
     }
 
     void FixedUpdate()
     {
+        HandleEffect();
         Move();
         Aim();
-        Shoot();
     }
 
     void Move()
     {
+        if (effect != null)
+        {
+            if (effect.immovable)
+            {
+                return;
+            }
+        }
         if (pic.dir.x != 0)
         {
             lasDir = pic.dir.x * -1;
         }
-        rotationAngle -= pic.dir.x * ps.GetMoveSpeed() * -1;
+        float currMoveSpeed = pic.dir.x * ps.GetMoveSpeed() * -1;
+        rotationAngle -= currMoveSpeed;
+        if (effect != null)
+        {
+            if (effect.movePenalty > 1)
+            {
+                rotationAngle -= currMoveSpeed / effect.movePenalty;
+            }
+        }
         Quaternion targetRotation = Quaternion.Euler(0, 0, rotationAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothTime);
     }
@@ -68,7 +91,11 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        if (isShooting)
+        if (shootTimer > 0)
+        {
+            shootTimer -= Time.deltaTime;
+        }
+        if (isShooting && ps.currentAmunition > 0)
         {
             if (ps.GetWeapon() == PlayerStat.WeaponType.Laser)
             {
@@ -79,13 +106,9 @@ public class PlayerController : MonoBehaviour
                 DestroyRay();
                 if (shootTimer <= 0)
                 {
-                    GameObject bullInit = Instantiate(ps.GetBulletPrefab(), muzzle.position, ship.transform.rotation);
-                    bullInit.GetComponent<Bullet>().SetDamage(ps.GetAttackDamage());
+                    InstatiatingBullets();
+                    ps.UpdateAmunition(-1);
                     shootTimer = ps.GetCooldown();
-                }
-                if (shootTimer > 0)
-                {
-                    shootTimer -= Time.deltaTime;
                 }
             }
         }
@@ -96,16 +119,60 @@ public class PlayerController : MonoBehaviour
                 DestroyRay();
             }
         }
+        if (ps.currentAmunition <= 0 && !isReloading)
+        {
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    void InstatiatingBullets()
+    {
+        if (ps.GetWeapon() != PlayerStat.WeaponType.Laser)
+        {
+            float bulletPerShot = ps.weaponLevel;
+            float spreadAngle = 10f;
+            float startAngle = -spreadAngle * (bulletPerShot - 1) / 2;
+            for (int i = 0; i < bulletPerShot; i++)
+            {
+                float angle = startAngle + i * spreadAngle;
+                Quaternion bulletRotation = ship.transform.rotation * Quaternion.Euler(0, 0, angle);
+                GameObject bullInit = Instantiate(ps.GetBulletPrefab(), muzzle.position, bulletRotation);
+                bullInit.GetComponent<Bullet>().SetDamage(ps.GetAttackDamage());
+            }
+        }
     }
 
     void ShootLaser()
     {
+        if (shootTimer <= 0)
+        {
+            shootTimer = ps.GetCooldown();
+            ps.UpdateAmunition(-1);
+        }
+        if (shootTimer > 0)
+        {
+            shootTimer -= Time.deltaTime;
+        }
         if (Physics2D.Raycast(muzzle.position, ship.transform.up, defDistanceRay))
         {
             RaycastHit2D hit = Physics2D.Raycast(muzzle.position, ship.transform.up, defDistanceRay);
-            Debug.Log("Hit: " + hit.collider.name);
             lineRenderer.SetPosition(0, muzzle.position);
             lineRenderer.SetPosition(1, hit.point);
+            if (shootTimer > 0 && hit.collider != null)
+            {
+                if (hit.collider.GameObject().layer == LayerMask.NameToLayer("Default"))
+                {
+                    Debug.Log("Hit: " + hit.collider.name + " with damage: " + ps.GetAttackDamage());
+                    if (ps.fireEffect != null && ps.BurnLevel > 0)
+                    {
+                        hit.collider.GameObject().GetComponent<IEffectable>()?.ApplyEffect(ps.fireEffect);
+                    }
+                    if (ps.freezeEffect != null && ps.FreezeLevel > 0)
+                    {
+                        hit.collider.GameObject().GetComponent<IEffectable>()?.ApplyEffect(ps.freezeEffect);
+                    }
+                }
+            }
         }
         else
         {
@@ -120,8 +187,23 @@ public class PlayerController : MonoBehaviour
         lineRenderer.SetPosition(1, muzzle.position);
     }
 
+    IEnumerator ReloadCoroutine()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(ps.GetReloadTime());
+        ps.currentAmunition = ps.GetMagazine();
+        isReloading = false;
+    }
+
     public void Jump()
     {
+        if (effect != null)
+        {
+            if (effect.immovable)
+            {
+                return;
+            }
+        }
         if (canJump && !isJump)
         {
             StartCoroutine(JumpCoroutine());
@@ -130,15 +212,78 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator JumpCoroutine()
     {
-        Debug.Log("Jump!");
         canJump = false;
         isJump = true;
-        rotationAngle -= lasDir * jumpForce;
+        rotationAngle -= lasDir * ps.GetJumpForce();
         Quaternion targetRotation = Quaternion.Euler(0, 0, rotationAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, jumpSmoothTime);
         yield return new WaitForSeconds(jumpTime);
         isJump = false;
         yield return new WaitForSeconds(jumpCD);
         canJump = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (damage > 0 && invicibilityTimer <= 0)
+        {
+            if (effect != null)
+            {
+                if (effect.damageMultiplier > 0)
+                {
+                    damage = (int)(damage * effect.damageMultiplier);
+                }
+            }
+            ps.UpdateHealth(-damage);
+            invicibilityTimer = invicibilityDuration;
+        }
+    }
+
+    void invicibilityCountdown()
+    {
+        if (invicibilityTimer > 0)
+        {
+            invicibilityTimer -= Time.deltaTime;
+        }
+    }
+
+    public void ApplyEffect(StatusEffectData effect)
+    {
+        RemoveEffect();
+        this.effect = effect;
+    }
+
+    public void RemoveEffect()
+    {
+        effect = null;
+        currEffectTime = 0f;
+        nextTickTime = 0f;
+    }
+
+    public void HandleEffect()
+    {
+        if (effect != null)
+        {
+            currEffectTime += Time.deltaTime;
+            if (currEffectTime >= effect.lifetime) RemoveEffect();
+            if (effect != null)
+            {
+                if (effect.damage != 0 && currEffectTime > nextTickTime)
+                {
+                    nextTickTime += effect.tickSpeed;
+                    TakeDamage((int)effect.damage);
+                }
+            }
+        }
+    }
+
+    public GameObject GetShip()
+    {
+        return ship;
+    }
+
+    public void TestApplyEffect()
+    {
+        // ApplyEffect(testEffect);
     }
 }

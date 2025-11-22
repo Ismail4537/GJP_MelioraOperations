@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public StatusEffectData statusEffect;
     public float damage;
     public float lifeTime = 1f;
     public float speed = 20f;
@@ -15,6 +16,12 @@ public class Bullet : MonoBehaviour
     virtual public void SetDamage(float dmg)
     {
         damage = dmg;
+    }
+
+    virtual public void SetDamage(float dmg, StatusEffectData effect)
+    {
+        damage = dmg;
+        statusEffect = effect;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +47,11 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Hit: " + collision.collider.name + " with damage: " + damage);
+        if (statusEffect != null)
+        {
+            Debug.Log("Applying effect: " + statusEffect.nama + " to " + collision.collider.name);
+        }
         Destroy(gameObject);
     }
 }

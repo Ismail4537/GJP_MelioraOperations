@@ -27,6 +27,6 @@ public class Explode : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-
+        Debug.Log("Hit: " + collision.name + " with damage: " + damage);
     }
 }
