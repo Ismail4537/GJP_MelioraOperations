@@ -2,15 +2,28 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private int currentHealth;
+    
+    [SerializeField] private EnemyStatsSO stats;
+    
+    private int maxHealth;
+
     void Start()
     {
-        
+        maxHealth = stats.maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeHealth(int amount)
     {
-        
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else if (currentHealth <= 0)
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }

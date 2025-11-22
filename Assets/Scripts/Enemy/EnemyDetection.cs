@@ -3,17 +3,27 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    [SerializeField] private float attackRange;
     [SerializeField] private LayerMask playerLayer;
+
+    [SerializeField] private EnemyStatsSO stats;
+
+    private float attackRange;
+
+    private EnemyController controller;
 
     private Rigidbody2D rb;
 
+    private bool playerDetected = false;
+
     private void Start()
     {
-        Debug.Log("Hallo Jawa");
+        attackRange = stats.attackRange;
+        
         Transform parent = transform.parent;
 
         rb = parent.GetComponent<Rigidbody2D>();
+        
+        controller = parent.Find("Scripts").GetComponent<EnemyController>();
     }
 
     private void Update() {
@@ -24,9 +34,20 @@ public class EnemyDetection : MonoBehaviour
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
 
-        if (hits.Length > 0)
-        {
+        bool isSeeingPlayer = hits.Length > 0;
+        
+        if (isSeeingPlayer)
             rb.linearVelocity = Vector2.zero;
+
+        if (isSeeingPlayer && !playerDetected)
+        {
+            playerDetected = true;
+            controller.StartAttack();
+        }
+        else if (!isSeeingPlayer && playerDetected)
+        {
+            playerDetected = false;
+            controller.StopAttack();
         }
     }
 

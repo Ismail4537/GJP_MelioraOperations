@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 2;
-    [SerializeField] private Transform player;
+    [SerializeField] private EnemyStatsSO stats;
+
+    private float speed;
+
+    private Transform player;
 
     private Transform spriteObject;
 
@@ -13,6 +16,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        speed = stats.speed;
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         parent = transform.parent;
 
         rb = parent.GetComponent<Rigidbody2D>();
@@ -23,7 +30,6 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         Chase();
-        // Flip();
     }
 
     void Chase()
@@ -34,14 +40,6 @@ public class EnemyMovement : MonoBehaviour
         // rotasi musuh agar lihat ke player (top-down)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         parent.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
-    void Flip()
-    {
-        if (player.position.x > parent.position.x)
-            spriteObject.localScale = new Vector3(1, 1, 1);
-        else
-            spriteObject.localScale = new Vector3(-1, 1, 1);
     }
 
     private void OnDrawGizmos()
