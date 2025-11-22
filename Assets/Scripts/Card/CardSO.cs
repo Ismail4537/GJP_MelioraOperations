@@ -1,12 +1,10 @@
 using UnityEngine;
 
-using UnityEngine;
-
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 public class CardSO : ScriptableObject
 {
-    [Header("Card Info")]
-    public Sprite cardImage; // gambar kartu
+    [Header("Info Kartu")]
+    public Sprite cardImage; // icon kartu
     public string cardName; // nama kartu
 
     [TextArea] 

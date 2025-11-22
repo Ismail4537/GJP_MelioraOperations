@@ -16,7 +16,7 @@ public class ObjectiveSO : ScriptableObject
     public ObjectiveType type;
 
     public int requiredAmount;          // for kill count
-    public EnemyCategory targetCategory; // for category-specific kills
+    // public EnemyCategory targetCategory; // for category-specific kills
 
     public string description;
 }

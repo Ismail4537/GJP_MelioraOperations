@@ -36,41 +36,41 @@ public class PowerUpManager : MonoBehaviour
         // apply effect
         switch (card.effectType)
         {
-            case CardEffect.AtkUp:
-                PlayerStats.Instance.AddAttack(card.baseValue);
-                break;
+            // case CardEffect.AtkUp:
+            //     PlayerStats.Instance.AddAttack(card.baseValue);
+            //     break;
 
-            case CardEffect.HpUp:
-                PlayerStats.Instance.AddHP(card.baseValue);
-                break;
+            // case CardEffect.HpUp:
+            //     PlayerStats.Instance.AddHP(card.baseValue);
+            //     break;
 
-            case CardEffect.SpeedUp:
-                PlayerStats.Instance.AddSpeed(card.baseValue);
-                break;
+            // case CardEffect.SpeedUp:
+            //     PlayerStats.Instance.AddSpeed(card.baseValue);
+            //     break;
 
-            case CardEffect.Burn:
-                BulletEffects.Instance.SetBurnLevel(currentLevel + 1);
-                break;
+            // case CardEffect.Burn:
+            //     BulletEffects.Instance.SetBurnLevel(currentLevel + 1);
+            //     break;
 
-            case CardEffect.Freeze:
-                BulletEffects.Instance.SetFreezeLevel(currentLevel + 1);
-                break;
+            // case CardEffect.Freeze:
+            //     BulletEffects.Instance.SetFreezeLevel(currentLevel + 1);
+            //     break;
 
-            case CardEffect.WeaponMissile:
-                WeaponManager.Instance.UpgradeMissile(currentLevel + 1);
-                break;
+            // case CardEffect.WeaponMissile:
+            //     WeaponManager.Instance.UpgradeMissile(currentLevel + 1);
+            //     break;
 
-            case CardEffect.WeaponLaser:
-                WeaponManager.Instance.UpgradeLaser(currentLevel + 1);
-                break;
+            // case CardEffect.WeaponLaser:
+            //     WeaponManager.Instance.UpgradeLaser(currentLevel + 1);
+            //     break;
 
-            case CardEffect.WeaponMachineGun:
-                WeaponManager.Instance.UpgradeMachineGun(currentLevel + 1);
-                break;
+            // case CardEffect.WeaponMachineGun:
+            //     WeaponManager.Instance.UpgradeMachineGun(currentLevel + 1);
+            //     break;
 
-            case CardEffect.LongerDash:
-                PlayerStats.Instance.UpgradeDash(currentLevel + 1);
-                break;
+            // case CardEffect.LongerDash:
+            //     PlayerStats.Instance.UpgradeDash(currentLevel + 1);
+            //     break;
         }
 
         // tambahin levelnya
