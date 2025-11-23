@@ -26,9 +26,10 @@ public class PlayerStat : MonoBehaviour
     {
         Laser,
         Machinegun,
-        RocketLauncher
+        RocketLauncher,
+        Pistol
     }
-    WeaponType currentWeapon = WeaponType.Machinegun;
+    WeaponType currentWeapon = WeaponType.Pistol;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject rocketPrefab;
     public StatusEffectData fireEffect;
@@ -91,7 +92,10 @@ public class PlayerStat : MonoBehaviour
         {
             return 1f;
         }
-        return 0.5f;
+        else
+        {
+            return 0.6f;
+        }
     }
     public WeaponType GetWeapon()
     {
@@ -136,11 +140,7 @@ public class PlayerStat : MonoBehaviour
     }
     public void SetWeapon(WeaponType newWeapon)
     {
-        if (currentWeapon != newWeapon)
-        {
-            weaponLevel = 1;
-        }
-        else
+        if (currentWeapon == newWeapon)
         {
             AddWeaponLevel(1);
         }
@@ -164,7 +164,8 @@ public class PlayerStat : MonoBehaviour
         }
         else
         {
-            return;
+            baseAttackDamage = 10f;
+            baseReloadTime = 2f;
         }
         currentWeapon = newWeapon;
     }

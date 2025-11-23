@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour, IEffectable
     float jumpTime = 0.5f;
     float jumpCD = 0.5f;
     float smoothTime = 0.1f;
-    float invicibilityDuration = 3f;
+    float invicibilityDuration = 2f;
     float invicibilityTimer = 0f;
     public float jumpSmoothTime = 0.1f;
     public bool isShooting = false;
@@ -127,7 +127,12 @@ public class PlayerController : MonoBehaviour, IEffectable
 
     void InstatiatingBullets()
     {
-        if (ps.GetWeapon() != PlayerStat.WeaponType.Laser)
+        if (ps.GetWeapon() == PlayerStat.WeaponType.Laser)
+        {
+            Debug.LogWarning("Laser weapon should not instantiate bullets.");
+            return;
+        }
+        if (ps.GetWeapon() == PlayerStat.WeaponType.RocketLauncher)
         {
             float bulletPerShot = ps.weaponLevel;
             float spreadAngle = 10f;
@@ -139,6 +144,20 @@ public class PlayerController : MonoBehaviour, IEffectable
                 GameObject bullInit = Instantiate(ps.GetBulletPrefab(), muzzle.position, bulletRotation);
                 bullInit.GetComponent<Bullet>().SetDamage(ps.GetAttackDamage());
             }
+        }
+        else
+        {
+            StartCoroutine(ShootBurstCoroutine(ps.weaponLevel, 0.1f));
+        }
+    }
+
+    IEnumerator ShootBurstCoroutine(int burstCount, float delayBetweenShots)
+    {
+        for (int i = 0; i < burstCount; i++)
+        {
+            GameObject bullInit = Instantiate(ps.GetBulletPrefab(), muzzle.position, ship.transform.rotation);
+            bullInit.GetComponent<Bullet>().SetDamage(ps.GetAttackDamage());
+            yield return new WaitForSeconds(delayBetweenShots);
         }
     }
 
