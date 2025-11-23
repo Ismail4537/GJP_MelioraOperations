@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.7754681, g: 0.42452818, b: 1, a: 1}
   m_FlipX: 0
@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 6781217173499791305}
   - component: {fileID: 8285932758931767834}
   - component: {fileID: 843933519673477664}
+  - component: {fileID: 7939327151967851033}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -433,6 +434,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   stats: {fileID: 11400000, guid: 91fdd10c3ffae5e48ad19506973caff7, type: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  slowMove: 0
+  rotationSpeed: 5
 --- !u!114 &6781217173499791305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +480,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4ec7135491f3848a689b6f2c6a2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  stats: {fileID: 11400000, guid: 91fdd10c3ffae5e48ad19506973caff7, type: 2}
+--- !u!114 &7939327151967851033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479270575420688375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a149e09b1a5ed6a4a9e3afbe2b463974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsRef
   stats: {fileID: 11400000, guid: 91fdd10c3ffae5e48ad19506973caff7, type: 2}
 --- !u!1 &4295594683529775211
 GameObject:

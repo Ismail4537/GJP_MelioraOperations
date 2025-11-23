@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 [CreateAssetMenu(fileName = "EnemyStatsSO", menuName = "EnemyStats/EnemyStatsNode")]
 public class EnemyStatsSO : ScriptableObject
@@ -19,8 +21,13 @@ public class EnemyStatsSO : ScriptableObject
 
     public float attackRange = 5;
 
+    public float attackSpeed;
+
     [Header("Speed")]
     public float speed = 2;
+
+    [Header("Score")]
+    public int score;
 
     [Header("Audio")]
     public AudioClip attackSFX;

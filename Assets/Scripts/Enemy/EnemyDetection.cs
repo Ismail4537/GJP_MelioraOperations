@@ -15,18 +15,21 @@ public class EnemyDetection : MonoBehaviour
 
     private bool playerDetected = false;
 
+    private Transform parent;
+
     private void Start()
     {
         attackRange = stats.attackRange;
-        
-        Transform parent = transform.parent;
+
+        parent = transform.parent;
 
         rb = parent.GetComponent<Rigidbody2D>();
-        
+
         controller = parent.Find("Scripts").GetComponent<EnemyController>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         CheckForPlayer();
     }
 
@@ -35,9 +38,6 @@ public class EnemyDetection : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
 
         bool isSeeingPlayer = hits.Length > 0;
-        
-        if (isSeeingPlayer && stats.enemyName != "Chimerator")
-            rb.linearVelocity = Vector2.zero;
 
         if (isSeeingPlayer && !playerDetected)
         {
@@ -57,3 +57,4 @@ public class EnemyDetection : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
+

@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChimeratorAttack
   stats: {fileID: 11400000, guid: ccbd70109aaaae74498b80f16e6771c8, type: 2}
-  speedAttack: 2
 --- !u!61 &7653398381219276651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.8323794, b: 0.5372549, a: 1}
   m_FlipX: 0
@@ -460,6 +459,7 @@ GameObject:
   - component: {fileID: 1684678925857314539}
   - component: {fileID: 7652909020821334280}
   - component: {fileID: 4214074399853451132}
+  - component: {fileID: 604312728935672296}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -539,4 +539,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4ec7135491f3848a689b6f2c6a2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  stats: {fileID: 11400000, guid: ccbd70109aaaae74498b80f16e6771c8, type: 2}
+--- !u!114 &604312728935672296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429649095389650684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a149e09b1a5ed6a4a9e3afbe2b463974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsRef
   stats: {fileID: 11400000, guid: ccbd70109aaaae74498b80f16e6771c8, type: 2}

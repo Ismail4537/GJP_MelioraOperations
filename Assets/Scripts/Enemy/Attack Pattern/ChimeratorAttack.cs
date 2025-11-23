@@ -3,9 +3,9 @@ using UnityEngine;
 public class ChimeratorAttack : MonoBehaviour, IAttackPattern {
     [SerializeField] private EnemyStatsSO stats;
 
-    [SerializeField] private float speedAttack = 2;
-
     private EnemyAttack enemyAttack;
+
+    private float attackSpeed;
     
     private float cooldown;
 
@@ -27,6 +27,7 @@ public class ChimeratorAttack : MonoBehaviour, IAttackPattern {
 
     private void Start()
     {
+        attackSpeed = stats.attackSpeed;
         parent = transform.parent;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyAttack = parent.Find("Scripts").GetComponent<EnemyAttack>();
@@ -72,7 +73,7 @@ public class ChimeratorAttack : MonoBehaviour, IAttackPattern {
 
         Vector2 dir = enemy.DirectionToPlayer();
 
-        float dashSpeed = speedAttack * 5f;
+        float dashSpeed = attackSpeed * 5f;
         rb.linearVelocity = dir * dashSpeed;
 
         Invoke(nameof(StopDash), 1f);
@@ -99,7 +100,7 @@ public class ChimeratorAttack : MonoBehaviour, IAttackPattern {
         {
             enemyAttack.Attack();
 
-            Invoke(nameof(StopDash), 0.5f);
+            Invoke(nameof(StopDash), 0.3f);
         }
     }
 }

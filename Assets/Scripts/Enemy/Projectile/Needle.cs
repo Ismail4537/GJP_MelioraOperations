@@ -4,7 +4,7 @@ public class Needle : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
 
-    [SerializeField] private float lifeTime = 10f;
+    [SerializeField] private float lifeTime = 5f;
 
     private Vector2 direction;
     private EnemyAttack enemyAttack;

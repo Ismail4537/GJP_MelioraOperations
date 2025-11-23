@@ -18,6 +18,8 @@ MonoBehaviour:
   demage: 3
   cooldown: 2
   attackRange: 1
+  attackSpeed: 0
   speed: 5
+  score: 150
   attackSFX: {fileID: 0}
   deathSFX: {fileID: 0}
