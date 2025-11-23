@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d2869069bcc85439d0cec5232229be, type: 3}
+  m_Name: SeraphidStats
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsSO
+  enemyName: Seraphid
+  enemyCategory: B
+  maxHealth: 60
+  demage: 2
+  cooldown: 3
+  attackRange: 5
+  attackSpeed: 0
+  speed: 2
+  score: 20
+  attackSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
